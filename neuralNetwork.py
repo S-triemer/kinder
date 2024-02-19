@@ -77,7 +77,7 @@ class neuralNetwork:
 
 # number of input, hidden and output nodes
 input_nodes = 784
-hidden_nodes = 100
+hidden_nodes = 20000
 output_nodes = 10
 
 # learning rate
@@ -87,7 +87,7 @@ learning_rate = 0.3
 n = neuralNetwork(input_nodes,hidden_nodes,output_nodes, learning_rate)
 
 # load the mnist training data CSV file into a list
-training_data_file = open("FIAE_KI/KNN_2.2.3_02_Mnist_large/mnist_dataset/mnist_train.csv", 'r') 
+training_data_file = open("mnist_dataset_klein/mnist_train.csv", 'r') 
 training_data_list = training_data_file.readlines()
 training_data_file.close()
 
@@ -112,7 +112,7 @@ for e in range(epochs):
 
 
 # load the mnist test data CSV file into a list
-test_data_file = open("FIAE_KI/KNN_2.2.3_02_Mnist_large/mnist_dataset/mnist_test.csv", 'r')
+test_data_file = open("mnist_dataset_klein/mnist_test.csv", 'r')
 
 test_data_list = test_data_file.readlines()
 test_data_file.close()
