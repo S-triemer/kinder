@@ -77,7 +77,7 @@ class neuralNetwork:
 
 # number of input, hidden and output nodes
 input_nodes = 2
-hidden_nodes = 20
+hidden_nodes = 2000
 output_nodes = 2
 
 # learning rate
@@ -95,15 +95,18 @@ training_data_file.close()
 # train the neural network
 
 # epochs is the number of times the training data set is used for training
-epochs = 2
+epochs = 100
 
 for e in range(epochs):
+    print('Epoche', e)
     # go through all records in the training data set
     for record in training_data_list:
         # split the record by the ',' commas
         all_values = record.split(',')
         # scale and shift the inputs
-        inputs = numpy.asfarray(all_values[:2])
+        inputs = []
+        inputs.append(float(all_values[0]) / 24 * 0.99 + 0.01)
+        inputs.append(float(all_values[1]) / 100 * 0.99+ 0.01)
         # create the target output values (all 0.01, except the desired label which is 0.99)
         targets = numpy.zeros(output_nodes) + 0.01
         # all_values[0] is the target label for this record
@@ -129,7 +132,10 @@ for record in test_data_list:
     # correct answer is first value
     correct_label = int(all_values[2])
     # scale and shift the inputs
-    inputs = numpy.asfarray(all_values[:2])
+    inputs = []
+    inputs.append(float(all_values[0]) / 24 * 0.99 + 0.01)
+    inputs.append(float(all_values[1]) / 100 * 0.99+ 0.01)
+        
     # query the network
     outputs = n.query(inputs)
     # the index of the highest value corresponds to the label
