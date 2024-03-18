@@ -87,7 +87,7 @@ learning_rate = 0.1
 n = neuralNetwork(input_nodes,hidden_nodes,output_nodes, learning_rate)
 
 # load the mnist training data CSV file into a list
-training_data_file = open("studentDataset/student_train.csv", 'r') 
+training_data_file = open("titanicDataset/titanic_train.csv", 'r') 
 training_data_list = training_data_file.readlines()
 training_data_file.close()
 
@@ -115,7 +115,7 @@ for e in range(epochs):
 
 
 # load the mnist test data CSV file into a list
-test_data_file = open("studentDataset/student_test.csv", 'r') 
+test_data_file = open("titanicDataset/titanic_test.csv", 'r') 
 
 test_data_list = test_data_file.readlines()
 test_data_file.close()
