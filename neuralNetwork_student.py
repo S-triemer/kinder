@@ -103,7 +103,7 @@ for e in range(epochs):
         # split the record by the ',' commas
         all_values = record.split(',')
         # scale and shift the inputs
-        inputs = numpy.asfarray(all_values[:1])
+        inputs = numpy.asfarray(all_values[:2])
         # create the target output values (all 0.01, except the desired label which is 0.99)
         targets = numpy.zeros(output_nodes) + 0.01
         # all_values[0] is the target label for this record
@@ -129,7 +129,7 @@ for record in test_data_list:
     # correct answer is first value
     correct_label = int(all_values[2])
     # scale and shift the inputs
-    inputs = numpy.asfarray(all_values[:1])
+    inputs = numpy.asfarray(all_values[:2])
     # query the network
     outputs = n.query(inputs)
     # the index of the highest value corresponds to the label
